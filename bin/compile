@@ -43,7 +43,7 @@ BIN_DIR=$BUILD_DIR/.chromedriver/bin
 mkdir -p $BIN_DIR
 
 topic "Looking up latest chromedriver version"
-if [ -z ${CHROMEDRIVER_VERSION+x} ];
+if [ -z ${CHROMEDRIVER_VERSION+x} ]; then
   LATEST="https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
   VERSION=`curl -s $LATEST`
   indent "Version $VERSION"
