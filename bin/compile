@@ -22,16 +22,16 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-if [ -d "$env_dir" ]; then
+if [ -d "$ENV_DIR" ]; then
   status "Exporting config vars to environment"
-  export_env_dir $env_dir
+  export_env_dir $ENV_DIR
 fi
 
 BIN_DIR=$BUILD_DIR/.chromedriver/bin
 mkdir -p $BIN_DIR
 
 topic "Looking up latest chromedriver version"
-if [ -z ${var+x} ];
+if [ -z ${CHROMEDRIVER_VERSION+x} ];
   LATEST="https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
   VERSION=`curl -s $LATEST`
   indent "Version $VERSION"
